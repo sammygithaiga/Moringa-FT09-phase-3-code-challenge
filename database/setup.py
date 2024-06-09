@@ -1,6 +1,8 @@
+import sqlite3
 from .connection import get_db_connection
 
 def create_tables():
+    
     conn = get_db_connection()
     cursor = conn.cursor()
     
@@ -31,3 +33,8 @@ def create_tables():
 
     conn.commit()
     conn.close()
+  
+    
+    
+if __name__ == "__main__":
+    create_tables()

@@ -5,6 +5,46 @@ from models.author import Author
 from models.magazine import Magazine
 
 def main():
+    try:
+        
+        author = Author("Jane Doe")
+        print(f"Author created with ID: {author.id}, Name: {author.name}")
+
+        
+        magazine = Magazine("Science Today", "Science")
+        print(f"Magazine created with ID: {magazine.id}, Name: {magazine.name}, Category: {magazine.category}")
+
+       
+        article = Article(author, magazine, "Exploring Quantum Physics", "This is a detailed article about quantum physics.")
+        print(f"Article created with ID: {article.id}, Title: {article.title}, Content: {article.content}")
+
+      
+        print(f"Article Author: {article.author.name}")
+        print(f"Article Magazine: {article.magazine.name}")
+
+       
+        author_articles = author.articles()
+        print(f"Articles by Author: {[article.title for article in author_articles]}")
+        
+        author_magazines = author.magazines()
+        print(f"Magazines by Author: {[magazine.name for magazine in author_magazines]}")
+
+        # Test Magazine methods
+        magazine_articles = magazine.articles()
+        print(f"Articles in Magazine: {[article.title for article in magazine_articles]}")
+        
+        magazine_contributors = magazine.contributors()
+        print(f"Contributors to Magazine: {[contributor.name for contributor in magazine_contributors]}")
+
+        magazine_article_titles = magazine.article_titles()
+        print(f"Article Titles in Magazine: {magazine_article_titles}")
+
+        magazine_contributing_authors = magazine.contributing_authors()
+        print(f"Contributing Authors to Magazine: {[author.name for author in magazine_contributing_authors]}")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
     # Initialize the database and create tables
     create_tables()
 
