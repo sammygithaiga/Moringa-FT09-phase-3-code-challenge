@@ -13,13 +13,12 @@ class Author:
             c = conn.cursor()
             c.execute("INSERT INTO authors (name) VALUES (?)", (name,))
             conn.commit()
-            self ._id = c.lastrowid
+            self._id = c.lastrowid
             conn.close()
 
     def __repr__(self):
         return f'<Author {self.name}>'
     
-       
         
     @property
     def id(self):

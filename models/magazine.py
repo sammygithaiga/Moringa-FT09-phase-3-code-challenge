@@ -16,8 +16,6 @@ class Magazine:
         c = conn.cursor()
         c.execute('INSERT INTO magazines (name, category) VALUES (?, ?)', (name, category))
         conn.commit()
-        
-        
         self._id = c.lastrowid
         conn.close()
 
@@ -38,6 +36,17 @@ class Magazine:
         c.execute('UPDATE magazines SET name = ? WHERE id = ?', (value, self._id))
         conn.commit()
         conn.close()
+        
+        
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def name(self):
+        return self._name           
+        
+        
 
     @property
     def category(self):
