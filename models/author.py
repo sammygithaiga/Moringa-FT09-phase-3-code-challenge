@@ -17,6 +17,8 @@ class Author:
             self._id = c.lastrowid
             conn.close()
 
+
+
     @property
     def id(self):
         return self._id
