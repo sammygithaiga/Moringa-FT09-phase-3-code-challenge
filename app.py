@@ -23,6 +23,7 @@ def main():
         print(f"Article Magazine: {article.magazine.name}")
 
        
+       
         author_articles = author.articles()
         print(f"Articles by Author: {[article.title for article in author_articles]}")
         
